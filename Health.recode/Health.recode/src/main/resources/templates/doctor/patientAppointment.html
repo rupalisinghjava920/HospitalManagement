@@ -1,0 +1,230 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <script scr="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!--    <title th:text="${title}">Base html</title>-->
+</head>
+<body>
+
+<nav class="fixed-top navbar navbar-expand-lg navbar-light  bg-primary">
+    <a class="navbar-brand text-light"  href="#">Hospital Management</a>
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+        <ul class="navbar-nav ms-auto text-uppercase">
+            <li class="nav-item active"><a class="nav-link text-light" th:href="@{/doctor/patientAppointment}" href="#">Home</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Start sidebar-->
+<div class="sidebar mt-2">
+
+    <span onclick="toggleSidebar()" class="crossBtn">&times;</span>
+
+    <a href="#" th:href="@{/doctor/patientAppointment}" class="item">Home</a>
+    <a href="#" th:href="@{}"  class="item">Patient Appointment Schedule</a>
+    <a href="#"   class="item">Appointment Rejected</a>
+    <a href="#"  class="item">Add Appointment </a>
+    <a href="#"  class="item">Advise Medication And Diagnostics</a>
+    <a href="#" th:href="@{/logout}" class="item"> Logout</a>
+    <div class="divider"></div>
+</div>
+
+
+<!-- End sidebar-->
+
+
+<div class="content mt-5">
+
+    <i onclick="toggleSidebar()" class="fas fa-bars m-3"></i>
+
+
+<!--        <div th:if="${session.message}"-->
+<!--             th:classappend="${'alert-'+session.message.type}"-->
+<!--             class="alert text-center" role="alert">-->
+<!--            <span th:text="${session.message.content}"></span>-->
+<!--            <th:block th:text="${@sessionUtilityBean.removeMessageFromSession()}"></th:block>-->
+<!--        </div>-->
+
+<!--    <div th:replace="${content}"></div>-->
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="my-card mt-2 mb-3">
+
+                <div th:if="${session.message}" th:classappend="${session.message.type}" class="text-center alert">
+
+                    <p th:text="${session.message.content}"></p>
+
+                    <th:block th:remove="all"></th:block>
+
+                </div>
+                <h1 class="text-center">Doctor Form</h1>
+
+                <div class="card-body">
+                    <div th:if="${param.error}" class="alert alert-danger">
+                        Invalid Username
+                    </div>
+
+                    <form  th:action="@{/do_viewDoctor}" method="post" th:object="${doctor}">
+
+                        <!-- name field -->
+                        <div class="form-group ">
+                            <label >Name </label>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text"
+                                           name="firstName"
+                                           class="form-control"
+                                           id="firstName-field"
+                                           placeholder="First name">
+                                </div>
+                                <div class="col">
+                                    <input type="text"
+                                           name="lastName"
+                                           class="form-control"
+                                           id="lastName-field"
+                                           placeholder="Last name">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gender</label><br>
+                            <div class="form-group">
+                                <label for="male-field">Male</label>
+                                <input type="radio" id="male-field" name="gender" value="male">
+                                <label for="female-field">Female</label>
+                                <input type="radio"  id="female-field" name="gender" value="female">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="specialization-field"> Specialization </label>
+                            <input type="text"
+                                   name="specialization"
+                                   class="form-control"
+                                   id="specialization-field"
+                                   aria-describedby="emailHelp"
+                                   placeholder="Enter here"
+                                   required
+
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateofbirth-field"> Date of Birth </label>
+                            <input type="date"
+                                   name="dateofbirth"
+                                   class="form-control"
+                                   id="dateofbirth-field"
+                                   aria-describedby="emailHelp"
+                                   placeholder="Enter here"
+                                   required
+
+                            />
+                        </div>
+
+                        <div class="phone ">
+                            <label for="phone-field"> Phone Number :</label>
+                            <input type="tel"
+                                   name="phone"
+                                   class="form-control"
+                                   id="phone-field"
+                                   aria-describedby="emailHelp"
+                                   placeholder="0000000000"
+                                   required
+
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address-field">Address </label>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text"
+                                           name="address"
+                                           class="form-control"
+                                           id="address-field"
+                                           placeholder="Street Address">
+                                </div>
+                                <div class="col">
+                                    <input type="text"
+                                           name="city" class="form-control"
+                                           id="city-field" placeholder="City">
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="zip"
+                                           class="form-control"
+                                           id="zip-field" placeholder="Zip">
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username-field">Email</label>
+                            <input type="email"
+                                   name="email"
+                                   class="form-control"
+                                   id="username-field"
+                                   aria-describedby="emailHelp"
+                                   placeholder="Enter here"
+                                   required
+                            />
+                        </div>
+
+                        <div class="container text-center mt-3">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

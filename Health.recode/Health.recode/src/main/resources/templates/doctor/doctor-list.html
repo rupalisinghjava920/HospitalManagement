@@ -1,0 +1,38 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Appointments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Doctors</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Specialization</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="doctor : ${doctors}">
+            <td th:text="${doctor.id}">1</td>
+            <td th:text="${doctor.firstName}">John</td>
+            <td th:text="${doctor.lastName}">Doe</td>
+            <td th:text="${doctor.specialization}">Cardiology</td>
+            <td th:text="${doctor.email}">john.doe@example.com</td>
+            <td th:text="${doctor.phone}">1234567890</td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/doctors/new}">Add New Doctor</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
