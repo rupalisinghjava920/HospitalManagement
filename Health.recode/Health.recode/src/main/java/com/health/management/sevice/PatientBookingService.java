@@ -26,13 +26,12 @@ public class PatientBookingService {
         return patientBookRepository.findAll();
     }
 
-//    public PatientBooking getPatientBookingById(Long id){
-//        return patientRepository.findById(id).orElse(null);
-//    }
-
 
     public List<PatientBooking> getBookingsByDoctorId(Long doctorId) {
         return patientBookRepository.findByDoctorId(doctorId);
     }
 
+    public PatientBooking getPatientBookingById(Long id){
+        return patientBookRepository.findById(id).orElse(null);
+    }
 }

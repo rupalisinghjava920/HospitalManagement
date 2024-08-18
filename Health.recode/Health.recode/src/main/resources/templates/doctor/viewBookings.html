@@ -1,0 +1,72 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Appointments</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light  bg-primary">
+    <a class="navbar-brand text-light"  href="#">EHR Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav ms-auto text-uppercase">
+
+            <li class="nav-item active">
+                <a class="nav-link text-light" th:href="@{/doctor/patientAppointment}"  href=#>Home</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="my-card mt-2 mb-3">
+            <h1 class="center">Patients Booking Lists </h1>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Zip</th>
+                    <th>Gender</th>
+                    <th>Phone Number</th>
+                    <th>Date Of Birth</th>
+                    <th>Email</th>
+                    <th>Appointment Date</th>
+                    <th>Doctor ID</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="patientBooking : ${patientBookings}">
+                    <td th:text="${patientBooking.id}"></td>
+                    <td th:text="${patientBooking.firstName}"></td>
+                    <td th:text="${patientBooking.lastName}"></td>
+                    <td th:text="${patientBooking.address}"></td>
+                    <td th:text="${patientBooking.city}"></td>
+                    <td th:text="${patientBooking.zip}"></td>
+                    <td th:text="${patientBooking.gender}"></td>
+                    <td th:text="${patientBooking.phone}"></td>
+                    <td th:text="${patientBooking.dateofbirth}"></td>
+                    <td th:text="${patientBooking.email}"></td>
+                    <td th:text="${patientBooking.appointmentDate}"></td>
+                    <td th:text="${patientBooking.doctor.id} + ' ' + ${patientBooking.doctor.id}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
