@@ -31,6 +31,8 @@
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto text-uppercase">
             <li class="nav-item active"><a class="nav-link text-light" th:href="@{/doctor/patientAppointment}" href="#">Home</a></li>
+<!--            <li class="nav-item"><a class="nav-link text-light" href="#" tabindex="-1" aria-disable="true"><span th:text="${user.name}"></span></a></li>-->
+            <li class="nav-item"><a class="nav-link text-light" th:href="@{/logout}" href="#" tabindex="-1" aria-disable="true">Logout</a></li>
         </ul>
     </div>
 </nav>
@@ -41,20 +43,20 @@
     <span onclick="toggleSidebar()" class="crossBtn">&times;</span>
 
     <a href="#" th:href="@{/doctor/patientAppointment}" class="item">Home</a>
-    <a href="#" th:href="@{/doctor/{doctorId}/viewBookings(doctorId=${doctor.id})}" class="item">Patient Appointment Schedule</a>
-    <a href="#"   class="item">Appointment Rejected</a>
-    <a href="#" th:href="@{/doctor/doctor_list}" class="item">Add Doctor </a>
-    <a href="#"  class="item">Advise Medication And Diagnostics</a>
-    <a href="#" th:href="@{/logout}" class="item"> Logout</a>
+    <a th:href="@{/doctor/patientBooking-list}"  class="item"> Patient Appointment Schedule </a>
+    <a href="#" th:href="@{/doctor/doctor_list}" class="item"> Doctor List</a>
+<!--    <a th:href="@{/doctor/doctor-patients(specialization=${specialization})}" class="item">Specialization</a>-->
+    <a th:href="@{/doctor/doctor-patients(specialization=${specialization != null ? specialization : ''})}" class="item">Specialization</a>
+
+    <a th:href="@{/doctor/advise_form}">Doctor Advise</a>
+    <a href="#" th:href="@{/logout}" class="item">Logout</a>
+
     <div class="divider"></div>
 </div>
 
 <!-- End sidebar-->
 
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-<div class="container mt-3">
-<!--    <i onclick="toggleSidebar()" class="fas fa-bars m-3"></i>-->
+<div class="container mt-5">
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="my-card mt-2 mb-3">
@@ -182,6 +184,7 @@
         crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 <script th:src="@{/js/script.js}"></script>

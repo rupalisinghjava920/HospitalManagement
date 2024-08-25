@@ -1,12 +1,16 @@
 package com.health.management.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
+import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@ToString(exclude = "patientBookings")
 @Entity
 @Table(name="doctor_tbl")
 public class Doctor {

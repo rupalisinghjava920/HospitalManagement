@@ -32,10 +32,22 @@
 
         <ul class="navbar-nav ms-auto text-uppercase">
             <li class="nav-item active"><a class="nav-link text-light" th:href="@{/patient/appointment}" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-light" th:href="@{/logout}" href="#" tabindex="-1" aria-disable="true">Logout</a></li>
         </ul>
     </div>
 </nav>
+<!-- Start sidebar-->
+<div class="sidebar mt-2">
 
+    <span onclick="toggleSidebar()" class="crossBtn">&times;</span>
+
+    <a href="#" th:href="@{/patient/appointment}" class="item"> Home</a>
+    <a href="#" th:href="@{/patient/bookAppointment_form}" class="item"> Booking Appointment </a>
+    <a href="#"  th:href="@{/patient/patientBooking-list}"  class="item">Patient Booking Show</a>
+    <a href="#" th:href="@{/patient/view_advice}"  class="item"> View Medication Advised By Doctor </a>
+    <a href="#" th:href="@{/logout}" class="item"> Logout</a>
+    <div class="divider"></div>
+</div>
 
 <div class="container mt-3">
     <div class="row">
@@ -58,7 +70,8 @@
 
                     <form  th:action="@{/do_bookAppointment}" method="post" th:object="${patientBooking}">
 
-<!--                        <input type="hidden" th:field="*{doctorId}" value="1" />-->
+                        <input type="hidden" name="doctorId" value="1" />
+
                         <!-- name field -->
                         <div class="form-group ">
                             <label >Name </label>
@@ -165,6 +178,30 @@
                                    placeholder="Enter here"
                                    required
 
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="medicalCondition-field">Patient MedicalCondition</label>
+                            <input type="text"
+                                   name="medicalCondition"
+                                   class="form-control"
+                                   id="medicalCondition-field"
+                                   aria-describedby="emailHelp"
+                                   placeholder="Enter here"
+                                   required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="doctorName-field">Doctor Name</label>
+                            <input type="text"
+                                   name="doctorName"
+                                   class="form-control"
+                                   id="doctorName-field"
+                                   aria-describedby="emailHelp"
+                                   placeholder="Enter here"
+                                   required
                             />
                         </div>
 

@@ -6,6 +6,10 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 
 @Data
 @Entity
@@ -31,4 +35,5 @@ public class User {
     private String city;
 
     private String role;
+
 }

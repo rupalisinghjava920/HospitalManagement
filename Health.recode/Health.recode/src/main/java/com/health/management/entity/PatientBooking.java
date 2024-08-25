@@ -3,19 +3,21 @@ package com.health.management.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
+import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.List;
 
 @Data
+@ToString(exclude = "doctor")
 @Entity
-@Table(name="patientbook_tbl")
+@Table(name="patientbook")
 public class PatientBooking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String firstName;
     private String lastName;
     private String address;
@@ -23,6 +25,9 @@ public class PatientBooking {
     private String zip;
     private String gender;
     private String phone;
+
+    private String status;
+    private String medicalCondition;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateofbirth;
@@ -33,10 +38,13 @@ public class PatientBooking {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date appointmentDate;
 
+    private String doctorName;
 
-    @ManyToOne
-    @JoinColumn(name = "doctor_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
-    public PatientBooking() {}
+    public PatientBooking() {
+    }
+
 }

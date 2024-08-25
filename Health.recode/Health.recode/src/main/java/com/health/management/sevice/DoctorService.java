@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DoctorService {
@@ -24,8 +25,10 @@ public class DoctorService {
         return doctorRepository.findAll();
     }
 
-    public Doctor getDoctorById(Long id) {
-        return doctorRepository.findById(id).orElse(null);
+    public Optional<Doctor> getDoctorById(Long doctorId) {
+
+        return doctorRepository.findById(doctorId);
     }
+
 
 }

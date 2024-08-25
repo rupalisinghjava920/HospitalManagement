@@ -12,15 +12,12 @@ body{
 	background-color: silver;
 }
 
-.card{
-height: 450px;
-margin-top: auto;
-margin-bottom: auto;
-width: 500px;
- border: 1px solid black;
-background-color: slategrey;
-}
-
+.my-card1 {
+            width: 1600%;
+            height:
+            background-color: silver;
+            padding: 80px;
+        }
 
 .sidebar {
     height: 100%;

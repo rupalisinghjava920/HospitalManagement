@@ -8,27 +8,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-         <nav class="navbar navbar-expand-lg navbar-light  bg-primary">
-                <a class="navbar-brand text-light"  href="#">EHR Management</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<nav class="fixed-top navbar navbar-expand-lg navbar-light  bg-primary">
+    <a class="navbar-brand text-light"  href="#">Hospital Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto text-uppercase">
+            <li class="nav-item active"><a class="nav-link text-light" th:href="@{/doctor/patientAppointment}" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-light" th:href="@{/logout}" href="#" tabindex="-1" aria-disable="true">Logout</a></li>
+        </ul>
+    </div>
+</nav>
 
-                    <ul class="navbar-nav ms-auto text-uppercase">
 
-                        <li class="nav-item active">
-                            <a class="nav-link text-light" th:href="@{/patient/appointment}"  href=#>Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-light" th:href="@{/logout}" href="#" tabindex="-1" aria-disable="true">Logout</a></li>
-                    </ul>
-
-                </div>
-         </nav>
-
-<div class="container ">
+<div class="container mt-5" >
     <div class="row">
-        <div class="my-card mt-2 mb-3">
-            <h1 class="center">Patients Booking Lists </h1>
+        <div class="my-card1 mt-5 mb-5">
+            <h1 class="text-center">Patients Booking Lists </h1>
                 <table class="table table-striped">
                     <thead class="thead-dark">
                     <tr>
@@ -65,23 +62,25 @@
                         <td th:text="${patientBooking.doctorName}"></td>
                         <td th:text="${patientBooking.status}"></td>
 
-<!--                        <td>-->
-<!--                            <form th:action="@{/patient/patientBooking-list/accept/{id}(id=${patientBooking.id})}" method="post">-->
-<!--                                <button class="btn btn-success" type="submit">Accept</button>-->
-<!--                            </form>-->
+                        <td>
+                            <form th:action="@{/doctor/patientBooking-list/accept/{id}(id=${patientBooking.id})}" method="post">
+                                <button class="btn btn-success" type="submit">Accept</button>
+                            </form>
 
-<!--                            &lt;!&ndash; Reject Button &ndash;&gt;-->
-<!--                            <form th:action="@{/patient/patientBooking-list/reject/{id}(id=${patientBooking.id})}" method="post">-->
-<!--                                <button class="btn btn-danger" type="submit">Reject</button>-->
-<!--                            </form>-->
-<!--                        </td>-->
+                            <!-- Reject Button -->
+                            <form th:action="@{/doctor/patientBooking-list/reject/{id}(id=${patientBooking.id})}" method="post" >
+                                <button class="btn btn-primary" type="submit">Reject</button>
+                            </form>
+                        </td>
+
                     </tr>
                     </tbody>
                 </table>
-
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

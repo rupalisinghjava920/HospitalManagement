@@ -51,9 +51,8 @@
 
     <a href="#" th:href="@{/patient/appointment}" class="item"> Home</a>
     <a href="#" th:href="@{/patient/bookAppointment_form}" class="item"> Booking Appointment </a>
-    <a href="#"  th:href="@{/patient/patientBooking-list}"  class="item"> Patient Show </a>
-    <a href="#"  class="item"> View Doctor Priscription </a>
-    <a href="#"  class="item"> View Advised by Doctor </a>
+    <a href="#"  th:href="@{/patient/patientBooking-list}"  class="item">Patient Booking Show</a>
+    <a href="#" th:href="@{/patient/view_advice}"  class="item"> View Medication Advised By Doctor </a>
     <a href="#" th:href="@{/logout}" class="item"> Logout</a>
     <div class="divider"></div>
 </div>
@@ -89,6 +88,7 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script th:src="@{/js/script.js}"></script>
 </body>
