@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -19,31 +19,22 @@
     <script scr="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!--    <title th:text="${title}">Base html</title>-->
 </head>
-<body>
+<body class="home1-background">
 
 <nav class="fixed-top navbar navbar-expand-lg navbar-light  bg-primary">
     <a class="navbar-brand text-light"  href="#">Hospital Management</a>
-
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
-
         <ul class="navbar-nav ms-auto text-uppercase">
             <li class="nav-item active"><a class="nav-link text-light" th:href="@{/}" href="#">Home</a></li>
-<!--            <li class="nav-item"><a class="nav-link text-light" href="#" tabindex="-1" aria-disable="true"><span th:text="${user.name}"></span></a></li>-->
-
             <li class="nav-item"><a class="nav-link text-light" th:href="@{/logout}" href="#" tabindex="-1" aria-disable="true">Logout</a></li>
-
         </ul>
     </div>
 </nav>
-
 <!-- Start sidebar-->
 <div class="sidebar mt-2">
 
@@ -56,28 +47,9 @@
     <a href="#" th:href="@{/logout}" class="item"> Logout</a>
     <div class="divider"></div>
 </div>
-
-
 <!-- End sidebar-->
-
-
-<!--<div class="content mt-5">-->
-
-<!--    <i onclick="toggleSidebar()" class="fas fa-bars m-3"></i>-->
-
-
-<!--        <div th:if="${session.message}"-->
-<!--             th:classappend="${'alert-'+session.message.type}"-->
-<!--             class="alert text-center" role="alert">-->
-<!--            <span th:text="${session.message.content}"></span>-->
-<!--            <th:block th:text="${@sessionUtilityBean.removeMessageFromSession()}"></th:block>-->
-<!--        </div>-->
-
-<!--    <div th:replace="${content}"></div>-->
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
 </div>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

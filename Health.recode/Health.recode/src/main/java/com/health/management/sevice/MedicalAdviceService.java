@@ -23,10 +23,7 @@ public class MedicalAdviceService {
     public List<MedicalAdvice> getAllMadicalAdvises(){
         return medicalAdviceRepository.findAll();
     }
-/*
-    public List<MedicalAdvice> getAdviceForPatient(Long patientId) {
-        return medicalAdviceRepository.findByPatientBookingId(patientId);
-    }*/
+
 
 }
 

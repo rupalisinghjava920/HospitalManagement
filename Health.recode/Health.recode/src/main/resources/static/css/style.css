@@ -1,11 +1,23 @@
-body{
-	background: #e2e2e2!important;
+
+.home-background{
+    height: 100%;
+    margin:0;
+    padding:0;
+	background-image: url('/img/hospital.jpeg');
+     background-size: 100%;
+     background-repeat: no-repeat;
+     background-position: center;
+}
+.home1-background{
+    height: 100%;
+    margin:0;
+    padding:0;
+	background-image: url('/img/patient3.jpg');
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-position: center;
 }
 
-
-	 .bg-primary{
-	background: #009688 !important;
-}
 .my-card{
 	padding:50px;
 	 border: 1px solid black;
