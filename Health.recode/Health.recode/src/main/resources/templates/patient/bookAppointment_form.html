@@ -44,6 +44,9 @@
     <a href="#" th:href="@{/patient/appointment}" class="item"> Home</a>
     <a href="#" th:href="@{/patient/bookAppointment_form}" class="item"> Booking Appointment </a>
     <a href="#"  th:href="@{/patient/patientBooking-list}"  class="item">Patient Booking Show</a>
+<!--    <a th:href="@{/patient/{id}(id=${patientBooking.id})}" th:if="${patientBooking != null || ${patientBooking == null}}" class="item">Single PatientBooking</a>-->
+    <a href="#" th:href="@{/patient}" class="item">Single PatientBooking</a>
+
     <a href="#" th:href="@{/patient/view_advice}"  class="item"> View Medication Advised By Doctor </a>
     <a href="#" th:href="@{/logout}" class="item"> Logout</a>
     <div class="divider"></div>
@@ -193,17 +196,17 @@
                             />
                         </div>
 
-                        <div class="form-group">
-                            <label for="doctorName-field">Doctor Name</label>
-                            <input type="text"
-                                   name="doctorName"
-                                   class="form-control"
-                                   id="doctorName-field"
-                                   aria-describedby="emailHelp"
-                                   placeholder="Enter here"
-                                   required
-                            />
-                        </div>
+<!--                        <div class="form-group">-->
+<!--                            <label for="doctorName-field">Doctor Name</label>-->
+<!--                            <input type="text"-->
+<!--                                   name="doctorName"-->
+<!--                                   class="form-control"-->
+<!--                                   id="doctorName-field"-->
+<!--                                   aria-describedby="emailHelp"-->
+<!--                                   placeholder="Enter here"-->
+<!--                                   required-->
+<!--                            />-->
+<!--                        </div>-->
 
                         <div class="container text-center mt-3">
                             <button class="btn btn-primary" type="submit">Submit</button>

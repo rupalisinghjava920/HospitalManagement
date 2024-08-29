@@ -77,6 +77,8 @@
 
                     <form  th:action="@{/doctor/do_viewDoctor}" method="post" th:object="${doctor}">
 
+                        <input type="hidden" name="doctorId" th:value="${doctor.id}" />
+
                         <!-- name field -->
                         <div class="form-group ">
                             <label >Name </label>

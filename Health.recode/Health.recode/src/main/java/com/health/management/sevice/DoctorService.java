@@ -21,14 +21,12 @@ public class DoctorService {
     }
 
     public List<Doctor> getAllDoctors() {
-
         return doctorRepository.findAll();
     }
 
-    public Optional<Doctor> getDoctorById(Long doctorId) {
-
-        return doctorRepository.findById(doctorId);
-    }
+//    public Optional<Doctor> findById(int id) {
+//        return doctorRepository.findById(id);
+//    }
 
 
 }

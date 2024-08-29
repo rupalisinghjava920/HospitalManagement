@@ -17,7 +17,7 @@ public class Doctor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     private String firstName;
     private String lastName;
@@ -32,7 +32,7 @@ public class Doctor {
     private String gender;
 
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
-    private List<PatientBooking> patientBookings;
+    private List<PatientBooking> patientBookings=new ArrayList<>();
 
     public Doctor() {}
 }

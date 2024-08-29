@@ -31,9 +31,10 @@ public class PatientBookingService {
     private DoctorService doctorService;
 
     //save
-    public PatientBooking bookingAppointment(PatientBooking patientBooking,Long doctorId){
+    public PatientBooking bookingAppointment(PatientBooking patientBooking,int doctorId){
 
-        Doctor doctor=doctorRepository.findById(doctorId).orElseThrow(()-> new RuntimeException("Doctor not found"));
+        Doctor doctor = doctorRepository.findById(doctorId)
+                .orElseThrow(() -> new RuntimeException("Invalid doctor ID: "));
         patientBooking.setDoctor(doctor);
         return patientBookRepository.save(patientBooking);
 
@@ -63,4 +64,16 @@ public class PatientBookingService {
     public List<PatientBooking> getPatientBookingsByMedicalCondition(String medicalCondition) {
         return patientBookRepository.findByMedicalCondition(medicalCondition);
     }
+
+    //Single patientBookingId
+    public PatientBooking getSinglePatientBooking(Long id) {
+        Optional<PatientBooking>patientBooking=patientBookRepository.findById(id);
+        if(patientBooking.isPresent()){
+            return patientBooking.get();
+        }
+        throw  new RuntimeException("PatientBooking is not found for id "+id);
+    }
+
+
+
 }

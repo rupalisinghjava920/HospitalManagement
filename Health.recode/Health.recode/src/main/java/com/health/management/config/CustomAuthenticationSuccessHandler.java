@@ -22,7 +22,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         } else if (hasPatientRole) {
             response.sendRedirect("/patient/appointment");
         } else {
-            //response.sendRedirect("/");
+            response.sendRedirect("/");
 
         }
     }

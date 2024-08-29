@@ -36,4 +36,10 @@ public class User {
 
     private String role;
 
+//    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+//    private List<PatientBooking> patientBookings;
+
+//    @OneToMany
+//    @JoinColumn(name = "doctor_id")
+//    private Doctor doctor;
 }

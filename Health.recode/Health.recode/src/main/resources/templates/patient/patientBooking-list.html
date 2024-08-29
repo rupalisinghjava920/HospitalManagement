@@ -29,56 +29,58 @@
     <div class="row">
         <div class="my-card mt-2 mb-3">
             <h1 class="center">Patients Booking Lists </h1>
-                <table class="table table-striped">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Address</th>
-                        <th>City</th>
-                        <th>Zip</th>
-                        <th>Gender</th>
-                        <th>Phone Number</th>
-                        <th>Date Of Birth</th>
-                        <th>Email</th>
-                        <th>Appointment Date</th>
-                        <th>Medical Condition</th>
-                        <th>DoctorName </th>
-                        <th>Status</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="patientBooking : ${patientBookings}">
-                        <td th:text="${patientBooking.id}"></td>
-                        <td th:text="${patientBooking.firstName}"></td>
-                        <td th:text="${patientBooking.lastName}"></td>
-                        <td th:text="${patientBooking.address}"></td>
-                        <td th:text="${patientBooking.city}"></td>
-                        <td th:text="${patientBooking.zip}"></td>
-                        <td th:text="${patientBooking.gender}"></td>
-                        <td th:text="${patientBooking.phone}"></td>
-                        <td th:text="${patientBooking.dateofbirth}"></td>
-                        <td th:text="${patientBooking.email}"></td>
-                        <td th:text="${patientBooking.appointmentDate}"></td>
-                        <td th:text="${patientBooking.medicalCondition}"></td>
-                        <td th:text="${patientBooking.doctorName}"></td>
-                        <td th:text="${patientBooking.status}"></td>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Zip</th>
+                    <th>Gender</th>
+                    <th>Phone Number</th>
+                    <th>Date Of Birth</th>
+                    <th>Email</th>
+                    <th>Appointment Date</th>
+                    <th>Medical Condition</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="patientBooking : ${patientBookings}">
+<!--                   <tr th:if="${patientBooking != null}">-->
+                    <td th:text="${patientBooking.id}"></td>
+                    <td th:text="${patientBooking.firstName}"></td>
+                    <td th:text="${patientBooking.lastName}"></td>
+                    <td th:text="${patientBooking.address}"></td>
+                    <td th:text="${patientBooking.city}"></td>
+                    <td th:text="${patientBooking.zip}"></td>
+                    <td th:text="${patientBooking.gender}"></td>
+                    <td th:text="${patientBooking.phone}"></td>
+                    <td th:text="${patientBooking.dateofbirth}"></td>
+                    <td th:text="${patientBooking.email}"></td>
+                    <td th:text="${patientBooking.appointmentDate}"></td>
+                    <td th:text="${patientBooking.medicalCondition}"></td>
+                    <td th:text="${patientBooking.status}"></td>
 
-<!--                        <td>-->
-<!--                            <form th:action="@{/patient/patientBooking-list/accept/{id}(id=${patientBooking.id})}" method="post">-->
-<!--                                <button class="btn btn-success" type="submit">Accept</button>-->
-<!--                            </form>-->
+                 <!--   <td>
+                        &lt;!&ndash; Accept Button &ndash;&gt;
+                        <form th:action="@{/patient/patientBooking-list/accept/{id}(id=${patientBooking.id})}" method="post">
+                            <button class="btn btn-success" type="submit">Accept</button>
+                        </form>
 
-<!--                            &lt;!&ndash; Reject Button &ndash;&gt;-->
-<!--                            <form th:action="@{/patient/patientBooking-list/reject/{id}(id=${patientBooking.id})}" method="post">-->
-<!--                                <button class="btn btn-danger" type="submit">Reject</button>-->
-<!--                            </form>-->
-<!--                        </td>-->
-                    </tr>
-                    </tbody>
-                </table>
-
+                        &lt;!&ndash; Reject Button &ndash;&gt;
+                        <form th:action="@{/patient/patientBooking-list/reject/{id}(id=${patientBooking.id})}" method="post">
+                            <button class="btn btn-danger" type="submit">Reject</button>
+                        </form>
+                    </td>-->
+                </tr>
+<!--                    <tr th:if="${patientBooking == null}">-->
+<!--                        <td colspan="14">No PatientBooking found.</td>-->
+<!--                    </tr>-->
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

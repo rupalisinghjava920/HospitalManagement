@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface PatientBookRepository extends JpaRepository<PatientBooking, Long> , JpaSpecificationExecutor<PatientBooking> {
+public interface PatientBookRepository extends JpaRepository<PatientBooking, Long> {
     Optional<PatientBooking> findById(Long id);
 
 

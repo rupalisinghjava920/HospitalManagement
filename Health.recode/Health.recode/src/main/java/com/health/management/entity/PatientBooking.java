@@ -7,7 +7,6 @@ import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
 @ToString(exclude = "doctor")
@@ -38,12 +37,15 @@ public class PatientBooking {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date appointmentDate;
 
-    private String doctorName;
+    //private String doctorName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "doctor_id")
+    @JoinColumn(name = "doctor_id",nullable = false)
     private Doctor doctor;
 
+//    @ManyToOne
+//    @JoinColumn(name = "patientBooking_id",nullable = false)
+//    private User user;
     public PatientBooking() {
     }
 

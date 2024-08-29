@@ -31,6 +31,7 @@
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto text-uppercase">
             <li class="nav-item active"><a class="nav-link text-light" th:href="@{/}" href="#">Home</a></li>
+<!--            <li class="nav-item"><a class="nav-link text-light" href="#" tabindex="-1" aria-disable="true"><span th:text="${user.name}"></span></a></li>-->
             <li class="nav-item"><a class="nav-link text-light" th:href="@{/logout}" href="#" tabindex="-1" aria-disable="true">Logout</a></li>
         </ul>
     </div>
@@ -42,7 +43,8 @@
 
     <a href="#" th:href="@{/patient/appointment}" class="item"> Home</a>
     <a href="#" th:href="@{/patient/bookAppointment_form}" class="item"> Booking Appointment </a>
-    <a href="#"  th:href="@{/patient/patientBooking-list}"  class="item">Patient Booking Show</a>
+    <a href="#" th:href="@{/patient/patientBooking-list}"  class="item">Patient Booking Show</a>
+    <a href="#" th:href="@{/patient/appoint}" class="item">Single PatientBooking</a>
     <a href="#" th:href="@{/patient/view_advice}"  class="item"> View Medication Advised By Doctor </a>
     <a href="#" th:href="@{/logout}" class="item"> Logout</a>
     <div class="divider"></div>
